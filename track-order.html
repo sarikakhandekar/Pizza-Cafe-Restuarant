@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - FoodExpress</title>
+    <link rel="stylesheet" href="track-order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Skeleton -->
+    <div id="skeleton-loader" class="skeleton-container">
+        <div class="skeleton-header">
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-subtitle"></div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line short"></div>
+            <div class="skeleton skeleton-line"></div>
+        </div>
+        <div class="skeleton-timeline">
+            <div class="skeleton skeleton-circle"></div>
+            <div class="skeleton skeleton-circle"></div>
+            <div class="skeleton skeleton-circle"></div>
+            <div class="skeleton skeleton-circle"></div>
+        </div>
+        <div class="skeleton-card">
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line short"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container hidden">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn" aria-label="Go back">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Track Order</h1>
+                    <span class="order-id" id="orderId">Order ID: FE123456</span>
+                </div>
+            </div>
+            <button class="refresh-btn" id="refreshBtn" aria-label="Refresh status">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </header>
+
+        <!-- Order Info Card -->
+        <section class="order-info-card" id="orderInfoCard">
+            <div class="restaurant-info">
+                <div class="restaurant-logo">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="restaurant-details">
+                    <h2 id="restaurantName">Loading...</h2>
+                    <p class="order-datetime" id="orderDateTime">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>--</span>
+                    </p>
+                </div>
+            </div>
+            <div class="order-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Payment</span>
+                    <span class="meta-value" id="paymentMethod">
+                        <i class="fas fa-credit-card"></i> --
+                    </span>
+                </div>
+                <div class="meta-divider"></div>
+                <div class="meta-item">
+                    <span class="meta-label">Total</span>
+                    <span class="meta-value total" id="orderTotal">₹--</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Timeline -->
+        <section class="status-section">
+            <h3 class="section-title">
+                <i class="fas fa-route"></i>
+                Order Status
+            </h3>
+            
+            <!-- Desktop Timeline (Horizontal) -->
+            <div class="timeline-horizontal" id="timelineHorizontal">
+                <div class="timeline-track">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+                <div class="timeline-steps">
+                    <div class="timeline-step" data-step="1">
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-title">Order Confirmed</span>
+                            <span class="step-time" id="step1Time">--</span>
+                        </div>
+                    </div>
+                    <div class="timeline-step" data-step="2">
+                        <div class="step-icon">
+                            <i class="fas fa-fire-burner"></i>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-title">Preparing Food</span>
+                            <span class="step-time" id="step2Time">--</span>
+                        </div>
+                    </div>
+                    <div class="timeline-step" data-step="3">
+                        <div class="step-icon">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-title">Out for Delivery</span>
+                            <span class="step-time" id="step3Time">--</span>
+                        </div>
+                    </div>
+                    <div class="timeline-step" data-step="4">
+                        <div class="step-icon">
+                            <i class="fas fa-house-circle-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <span class="step-title">Delivered</span>
+                            <span class="step-time" id="step4Time">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Timeline (Vertical) -->
+            <div class="timeline-vertical" id="timelineVertical">
+                <div class="v-timeline-step" data-step="1">
+                    <div class="v-step-indicator">
+                        <div class="v-step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="v-step-line"></div>
+                    </div>
+                    <div class="v-step-content">
+                        <span class="v-step-title">Order Confirmed</span>
+                        <span class="v-step-desc">Your order has been received</span>
+                        <span class="v-step-time" id="vStep1Time">--</span>
+                    </div>
+                </div>
+                <div class="v-timeline-step" data-step="2">
+                    <div class="v-step-indicator">
+                        <div class="v-step-icon">
+                            <i class="fas fa-fire-burner"></i>
+                        </div>
+                        <div class="v-step-line"></div>
+                    </div>
+                    <div class="v-step-content">
+                        <span class="v-step-title">Preparing Food</span>
+                        <span class="v-step-desc">Restaurant is cooking your food</span>
+                        <span class="v-step-time" id="vStep2Time">--</span>
+                    </div>
+                </div>
+                <div class="v-timeline-step" data-step="3">
+                    <div class="v-step-indicator">
+                        <div class="v-step-icon">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <div class="v-step-line"></div>
+                    </div>
+                    <div class="v-step-content">
+                        <span class="v-step-title">Out for Delivery</span>
+                        <span class="v-step-desc">Your food is on its way</span>
+                        <span class="v-step-time" id="vStep3Time">--</span>
+                    </div>
+                </div>
+                <div class="v-timeline-step" data-step="4">
+                    <div class="v-step-indicator">
+                        <div class="v-step-icon">
+                            <i class="fas fa-house-circle-check"></i>
+                        </div>
+                    </div>
+                    <div class="v-step-content">
+                        <span class="v-step-title">Delivered</span>
+                        <span class="v-step-desc">Enjoy your meal!</span>
+                        <span class="v-step-time" id="vStep4Time">--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETA Section -->
+        <section class="eta-section" id="etaSection">
+            <div class="eta-card">
+                <div class="eta-icon">
+                    <i class="fas fa-clock"></i>
+                    <div class="eta-pulse"></div>
+                </div>
+                <div class="eta-content">
+                    <span class="eta-label">Estimated Arrival</span>
+                    <span class="eta-time" id="etaTime">25-35 mins</span>
+                </div>
+                <div class="countdown-container">
+                    <div class="countdown-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="countdown-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="countdown-progress" id="countdownProgress" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <span class="countdown-text" id="countdownText">18</span>
+                        <span class="countdown-unit">mins</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section" id="mapSection">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-grid"></div>
+                    <div class="map-route">
+                        <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+                            <path class="route-path" d="M50,150 Q150,50 200,100 T350,50" fill="none" stroke="#FF6B35" stroke-width="3" stroke-dasharray="10,5"/>
+                        </svg>
+                    </div>
+                    <div class="restaurant-marker">
+                        <i class="fas fa-store"></i>
+                        <span>Restaurant</span>
+                    </div>
+                    <div class="delivery-marker" id="deliveryMarker">
+                        <div class="delivery-icon">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <div class="delivery-ping"></div>
+                    </div>
+                    <div class="home-marker">
+                        <i class="fas fa-home"></i>
+                        <span>Your Location</span>
+                    </div>
+                </div>
+                <div class="map-overlay">
+                    <span class="live-tag">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Partner -->
+        <section class="partner-section" id="partnerSection">
+            <h3 class="section-title">
+                <i class="fas fa-user-check"></i>
+                Delivery Partner
+            </h3>
+            <div class="partner-card">
+                <div class="partner-info">
+                    <div class="partner-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ravi" alt="Delivery Partner">
+                        <span class="partner-badge">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <div class="partner-details">
+                        <h4 id="partnerName">Ravi Kumar</h4>
+                        <div class="partner-rating">
+                            <i class="fas fa-star"></i>
+                            <span id="partnerRating">4.8</span>
+                            <span class="rating-count">(1.2k deliveries)</span>
+                        </div>
+                        <span class="partner-vehicle">
+                            <i class="fas fa-motorcycle"></i>
+                            KA-01-AB-1234
+                        </span>
+                    </div>
+                </div>
+                <div class="partner-actions">
+                    <button class="action-btn call-btn" aria-label="Call partner">
+                        <i class="fas fa-phone"></i>
+                        <span>Call</span>
+                    </button>
+                    <button class="action-btn message-btn" aria-label="Message partner">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Chat</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Items -->
+        <section class="items-section">
+            <div class="items-header" id="itemsToggle">
+                <h3 class="section-title">
+                    <i class="fas fa-bag-shopping"></i>
+                    Order Items
+                    <span class="items-count" id="itemsCount">(0 items)</span>
+                </h3>
+                <button class="toggle-btn" id="toggleItemsBtn">
+                    <span>View Details</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="items-container collapsed" id="itemsContainer">
+                <ul class="items-list" id="itemsList">
+                    <!-- Items will be populated by JS -->
+                </ul>
+                <div class="items-summary">
+                    <div class="summary-row">
+                        <span>Item Total</span>
+                        <span id="itemTotal">₹--</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">₹--</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Taxes & Charges</span>
+                        <span id="taxes">₹--</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Grand Total</span>
+                        <span id="grandTotal">₹--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Address -->
+        <section class="address-section">
+            <h3 class="section-title">
+                <i class="fas fa-location-dot"></i>
+                Delivery Address
+            </h3>
+            <div class="address-card">
+                <div class="address-type">
+                    <i class="fas fa-home"></i>
+                    <span id="addressType">Home</span>
+                </div>
+                <p class="address-text" id="deliveryAddress">Loading address...</p>
+                <p class="address-landmark" id="addressLandmark">
+                    <i class="fas fa-map-pin"></i>
+                    <span>--</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="actions-section">
+            <button class="action-button help-btn" id="helpBtn">
+                <i class="fas fa-headset"></i>
+                <span>Help & Support</span>
+            </button>
+            <button class="action-button cancel-btn" id="cancelBtn">
+                <i class="fas fa-times-circle"></i>
+                <span>Cancel Order</span>
+            </button>
+            <button class="action-button home-btn" id="homeBtn">
+                <i class="fas fa-home"></i>
+                <span>Back to Home</span>
+            </button>
+        </section>
+    </div>
+
+    <!-- Sticky ETA Bar (Mobile) -->
+    <div class="sticky-eta-bar" id="stickyEtaBar">
+        <div class="sticky-eta-content">
+            <div class="sticky-status">
+                <span class="status-dot"></span>
+                <span id="stickyStatus">Preparing your order</span>
+            </div>
+            <div class="sticky-time">
+                <i class="fas fa-clock"></i>
+                <span id="stickyEta">18 mins</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-info-circle"></i>
+        <span id="toastMessage">Notification message</span>
+    </div>
+
+    <!-- Cancel Modal -->
+    <div class="modal-overlay" id="cancelModal">
+        <div class="modal-content">
+            <div class="modal-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>Cancel Order?</h3>
+            <p>Are you sure you want to cancel this order? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" id="cancelModalClose">No, Keep Order</button>
+                <button class="modal-btn danger" id="confirmCancel">Yes, Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal-content">
+            <button class="modal-close" id="helpModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h3>How can we help?</h3>
+            <div class="help-options">
+                <button class="help-option">
+                    <i class="fas fa-clock"></i>
+                    <span>Order is late</span>
+                </button>
+                <button class="help-option">
+                    <i class="fas fa-box-open"></i>
+                    <span>Missing items</span>
+                </button>
+                <button class="help-option">
+                    <i class="fas fa-utensils"></i>
+                    <span>Food quality issue</span>
+                </button>
+                <button class="help-option">
+                    <i class="fas fa-user-xmark"></i>
+                    <span>Delivery partner issue</span>
+                </button>
+                <button class="help-option">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Other issue</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="track-order.js"></script>
+</body>
+</html>

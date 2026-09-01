@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FoodieExpress | Order Delicious Food Online</title>
+    <meta name="description" content="Login to your FoodieExpress account and order delicious food from your favorite restaurants.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🍽️</text></svg>'>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- ============ ANIMATED BACKGROUND ============ -->
+    <div class="animated-background">
+        <!-- Floating Food Items -->
+        <div class="floating-food food-1">🍕</div>
+        <div class="floating-food food-2">🍔</div>
+        <div class="floating-food food-3">🌮</div>
+        <div class="floating-food food-4">🍜</div>
+        <div class="floating-food food-5">🍣</div>
+        <div class="floating-food food-6">🥗</div>
+        <div class="floating-food food-7">🍰</div>
+        <div class="floating-food food-8">🍟</div>
+        <div class="floating-food food-9">🥤</div>
+        <div class="floating-food food-10">🍩</div>
+        
+        <!-- Gradient Orbs -->
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- ============ MAIN CONTAINER ============ -->
+    <div class="login-wrapper">
+        <!-- Left Side - Branding & Info -->
+        <div class="login-branding">
+            <div class="branding-content">
+                <!-- Logo -->
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <span class="logo-text">Foodie<span class="highlight">Express</span></span>
+                </a>
+
+                <!-- Illustration -->
+                <div class="brand-illustration">
+                    <div class="illustration-circle">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Delicious Food">
+                    </div>
+                    <div class="floating-badge badge-1">
+                        <i class="fas fa-truck"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <i class="fas fa-star"></i>
+                        <span>4.9 Rating</span>
+                    </div>
+                    <div class="floating-badge badge-3">
+                        <i class="fas fa-percent"></i>
+                        <span>Best Offers</span>
+                    </div>
+                </div>
+
+                <!-- Welcome Text -->
+                <div class="brand-text">
+                    <h1>Welcome Back!</h1>
+                    <p>Login to access your favorite restaurants, track orders in real-time, and enjoy exclusive member deals.</p>
+                </div>
+
+                <!-- Feature Pills -->
+                <div class="feature-pills">
+                    <div class="pill">
+                        <i class="fas fa-bolt"></i>
+                        <span>Quick Order</span>
+                    </div>
+                    <div class="pill">
+                        <i class="fas fa-heart"></i>
+                        <span>Saved Favorites</span>
+                    </div>
+                    <div class="pill">
+                        <i class="fas fa-gift"></i>
+                        <span>Rewards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="login-form-section">
+            <div class="form-container">
+                <!-- Mobile Logo (visible on mobile only) -->
+                <a href="index.html" class="mobile-logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Foodie<span class="highlight">Express</span></span>
+                </a>
+
+                <!-- Form Header -->
+                <div class="form-header">
+                    <h2>Sign In</h2>
+                    <p>Enter your credentials to continue</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="login-form" novalidate>
+                    <!-- Email Input -->
+                    <div class="input-group" id="emailGroup">
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder=" "
+                                autocomplete="email"
+                                required
+                            >
+                            <label for="email">Email Address</label>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="error-message" id="emailError">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="input-group" id="passwordGroup">
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder=" "
+                                autocomplete="current-password"
+                                required
+                            >
+                            <label for="password">Password</label>
+                            <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="error-message" id="passwordError">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember & Forgot -->
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span class="custom-checkbox">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="remember-text">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password" id="forgotPassword">Forgot Password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                        <span class="btn-loader">
+                            <div class="spinner"></div>
+                        </span>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <!-- Social Login Buttons -->
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google" id="googleLogin">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn facebook" id="facebookLogin">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button type="button" class="social-btn apple" id="appleLogin">
+                            <i class="fab fa-apple"></i>
+                            <span>Apple</span>
+                        </button>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="signup-link">
+                        <span>Don't have an account?</span>
+                        <a href="signup.html">Create Account</a>
+                    </div>
+                </form>
+
+                <!-- Back to Home -->
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ TOAST NOTIFICATIONS ============ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ============ FORGOT PASSWORD MODAL ============ -->
+    <div class="modal-overlay" id="forgotModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h3>Forgot Password?</h3>
+            <p>Enter your email address and we'll send you a link to reset your password.</p>
+            <form id="forgotForm">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input 
+                            type="email" 
+                            id="forgotEmail" 
+                            placeholder=" "
+                            required
+                        >
+                        <label for="forgotEmail">Email Address</label>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="error-message" id="forgotEmailError">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span></span>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Send Reset Link</span>
+                    <span class="btn-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="login.js"></script>
+</body>
+</html>

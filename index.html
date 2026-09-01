@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================
+       METADATA & SEO
+  ========================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FoodieExpress - Delicious Food Delivered Fast</title>
+  <meta name="description" content="Order from your favorite restaurants and get fresh, hot meals delivered to your doorstep quickly. FoodieExpress - fast, reliable, delicious." />
+
+  <!-- =========================
+       FONTS & ICONS
+  ========================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS animation library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- YOUR STYLESHEET -->
+  <link rel="stylesheet" href="index.css" />
+
+  <!-- favicon (inline small svg) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🍽️</text></svg>' />
+</head>
+
+<body>
+  <!-- =========================
+       PRELOADER
+       (displayed while page loads)
+  ========================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="loader" role="status" aria-label="Loading">
+      <div class="food-icon" aria-hidden="true">🍕</div>
+      <div class="loading-text">Loading delicious food...</div>
+      <div class="loading-bar" aria-hidden="true">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#home" class="logo" aria-label="FoodieExpress home">
+        <i class="fas fa-utensils" aria-hidden="true"></i>
+        <span>Foodie<span class="highlight">Express</span></span>
+      </a>
+
+      <!-- Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#restaurants" class="nav-link">Restaurants</a></li>
+        <li><a href="#dishes" class="nav-link">Menu</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+       <a href="cart2.html"> <button class="cart-icon" aria-label="Cart">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+          <span class="cart-count" aria-hidden="true">3</span>
+        </button></a>
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        <!-- <a href="login.html" class="btn btn-outline">Login</a>
+<a href="signup.html" class="btn btn-primary">Sign Up</a> -->
+
+
+        <!-- Mobile Toggle -->
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-background" aria-hidden="true">
+     <div class="floating-food food-1" >🍔</div>>
+      <div class="floating-food food-2">🍕</div>
+      <div class="floating-food food-3">🌮</div>
+      <div class="floating-food food-4">🍜</div>
+      <div class="floating-food food-5">🍣</div>
+      <div class="floating-food food-6">🥗</div>
+    </div>
+
+    <div class="hero-container">
+      <!-- Left: content -->
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+        <div class="hero-badge"><i class="fas fa-fire"></i><span>#1 Food Delivery App</span></div>
+        <h1 class="hero-title">
+          Delicious Food
+          <span class="gradient-text">Delivered</span>
+          To Your Door
+        </h1>
+        <p class="hero-description">
+          Order from your favorite restaurants and get fresh, hot meals delivered to your doorstep in minutes. Fast, reliable, and delicious!
+        </p>
+
+        <!-- Search box -->
+        <div class="hero-search" role="search" aria-label="Find food">
+          <div class="search-box">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <input type="text" placeholder="Enter your delivery address..." aria-label="Enter delivery address" />
+            <button class="search-btn" aria-label="Find food">
+              <i class="fas fa-search" aria-hidden="true"></i> Find Food
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats" aria-hidden="false">
+          <div class="stat-item">
+            <div class="stat-number" data-count="500">0</div>
+            <div class="stat-label">Restaurants</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="10000">0</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">Cities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: image -->
+      <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+        <div class="hero-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="Delicious pizza" />
+          <div class="hero-card card-1">
+            <i class="fas fa-clock"></i>
+            <div><span class="card-title">Fast Delivery</span><span class="card-text">30 mins average</span></div>
+          </div>
+          <div class="hero-card card-2">
+            <i class="fas fa-star"></i>
+            <div><span class="card-title">Top Rated</span><span class="card-text">4.9 rating</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="mouse"><div class="wheel"></div></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- =========================
+       CATEGORIES
+  ========================= -->
+  <section class="categories" id="categories" aria-label="Categories">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Categories</span>
+        <h2 class="section-title">Browse By <span class="gradient-text">Category</span></h2>
+        <p class="section-description">Explore our wide range of cuisines and find your perfect meal</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="category-icon"><a href = "pizza.html">🍕</a></div>
+          <h3>Pizza</h3><span>120+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="150">
+          <div class="category-icon"> <a href="products.html">🍔</a></div> >
+          <h3>Burgers</h3><span>85+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="category-icon"><a href="products.html">🍜</a></div>
+          <h3>Asian</h3><span>200+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="250">
+          <div class="category-icon"><a href="products.html">🌮</a></div>
+          <h3>Mexican</h3><span>90+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="category-icon"><a href="products.html">🥗</a></div>
+          <h3>Healthy</h3><span>150+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="350">
+          <div class="category-icon"><a href="products.html">🍰</a></div>
+          <h3>Desserts</h3><span>75+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="category-icon"><a href="products.html">☕</a></div>
+          <h3>Drinks</h3><span>100+ options</span>
+        </div>
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="450">
+          <div class="category-icon"><a href="products.html">🍣</a></div>
+          <h3>Sushi</h3><span>60+ options</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FEATURED RESTAURANTS
+  ========================= -->
+  <section class="restaurants" id="restaurants" aria-label="Featured restaurants">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Restaurants</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Restaurants</span></h2>
+        <p class="section-description">Discover top-rated restaurants with the best reviews</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100" role="tablist" aria-label="Restaurant filters">
+        <button class="filter-btn active" data-filter="all" role="tab">All</button>
+        <button class="filter-btn" data-filter="pizza" role="tab">Pizza</button>
+        <button class="filter-btn" data-filter="burger" role="tab">Burger</button>
+        <button class="filter-btn" data-filter="asian" role="tab">Asian</button>
+        <button class="filter-btn" data-filter="mexican" role="tab">Mexican</button>
+      </div>
+
+      <div class="restaurants-grid">
+        <!-- Example restaurant cards: keep ordering consistent -->
+        <!-- Card 1 -->
+        <article class="restaurant-card" data-category="pizza" data-aos="fade-up" data-aos-delay="100">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400" alt="Italian Kitchen" />
+            <div class="restaurant-badge">Featured</div>
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Italian Kitchen</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.8</span><span class="reviews">(324)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Pizza</span><span class="tag">Pasta</span><span class="tag">Italian</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>25-35 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>Free Delivery</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="restaurant-card" data-category="burger" data-aos="fade-up" data-aos-delay="150">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400" alt="Burger House" />
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Burger House</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.6</span><span class="reviews">(256)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Burgers</span><span class="tag">American</span><span class="tag">Fries</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>20-30 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>$2.99 Delivery</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="restaurant-card" data-category="asian" data-aos="fade-up" data-aos-delay="200">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400" alt="Dragon Wok" />
+            <div class="restaurant-badge hot">Hot</div>
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Dragon Wok</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.9</span><span class="reviews">(512)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Chinese</span><span class="tag">Noodles</span><span class="tag">Dim Sum</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>30-40 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>Free Delivery</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="restaurant-card" data-category="mexican" data-aos="fade-up" data-aos-delay="250">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1653005530224-ef39940f5ee4?w=400" alt="Taco Fiesta" />
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Taco Fiesta</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.7</span><span class="reviews">(198)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Mexican</span><span class="tag">Tacos</span><span class="tag">Burritos</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>25-35 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>$1.99 Delivery</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="restaurant-card" data-category="asian" data-aos="fade-up" data-aos-delay="300">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=400" alt="Sushi Master" />
+            <div class="restaurant-badge premium">Premium</div>
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Sushi Master</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.9</span><span class="reviews">(445)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Japanese</span><span class="tag">Sushi</span><span class="tag">Ramen</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>35-45 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>Free Delivery</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="restaurant-card" data-category="pizza" data-aos="fade-up" data-aos-delay="350">
+          <div class="restaurant-image">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400" alt="Pizza Palace" />
+            <button class="favorite-btn" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+            <div class="restaurant-overlay"><a href="#" class="view-btn">View Menu</a></div>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-header">
+              <h3>Pizza Palace</h3>
+              <div class="rating"><i class="fas fa-star"></i><span>4.5</span><span class="reviews">(289)</span></div>
+            </div>
+            <div class="restaurant-tags"><span class="tag">Pizza</span><span class="tag">Wings</span><span class="tag">Calzone</span></div>
+            <div class="restaurant-meta">
+              <div class="meta-item"><i class="fas fa-clock"></i><span>20-30 min</span></div>
+              <div class="meta-item"><i class="fas fa-motorcycle"></i><span>Free Delivery</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="view-all-wrapper" data-aos="fade-up">
+        <a href="#" class="btn btn-primary btn-large">View All Restaurants <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       POPULAR DISHES
+  ========================= -->
+  <section class="dishes" id="dishes" aria-label="Popular dishes">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Menu</span>
+        <h2 class="section-title">Popular <span class="gradient-text">Dishes</span></h2>
+        <p class="section-description">Most ordered dishes from our partner restaurants</p>
+      </div>
+
+      <div class="dishes-grid">
+        <!-- Dish card template repeated -->
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="dish-image">
+           <a href="products.html"> <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Margherita Pizza" /></a>
+            <div class="dish-discount">-20%</div>
+            <button class="quick-add" aria-label="Add Margherita Pizza to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Italian Kitchen</div>
+            <h3 class="dish-name">Margherita Pizza</h3>
+            <p class="dish-description">Fresh tomatoes, mozzarella, basil</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$12.99</span><span class="original-price">$15.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.8</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="dish-image">
+           <a href="products.html"> <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Classic Cheeseburger" /></a>
+            <button class="quick-add" aria-label="Add Classic Cheeseburger to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Burger House</div>
+            <h3 class="dish-name">Classic Cheeseburger</h3>
+            <p class="dish-description">Angus beef, cheddar, special sauce</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$10.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.7</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="dish-image">
+           <a href="products.html"><img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400" alt="Pad Thai" /></a>
+            <div class="dish-badge">Bestseller</div>
+            <button class="quick-add" aria-label="Add Pad Thai to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Dragon Wok</div>
+            <h3 class="dish-name">Pad Thai Noodles</h3>
+            <p class="dish-description">Rice noodles, shrimp, peanuts</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$14.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.9</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="dish-image">
+           <a href="products.html"> <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400" alt="Street Tacos" /></a>
+            <div class="dish-discount">-15%</div>
+            <button class="quick-add" aria-label="Add Street Tacos to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Taco Fiesta</div>
+            <h3 class="dish-name">Street Tacos (3pcs)</h3>
+            <p class="dish-description">Grilled chicken, salsa, cilantro</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$9.99</span><span class="original-price">$11.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.6</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="dish-image">
+            <a href="products.html"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400" alt="Dragon Roll" /></a>
+            <button class="quick-add" aria-label="Add Dragon Roll to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Sushi Master</div>
+            <h3 class="dish-name">Dragon Roll (8pcs)</h3>
+            <p class="dish-description">Eel, avocado, cucumber, tobiko</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$18.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.9</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="dish-image">
+            <a href="products.html"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400" alt="Caesar Salad" /></a>
+            <div class="dish-badge healthy">Healthy</div>
+            <button class="quick-add" aria-label="Add Caesar Salad to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Green Leaf</div>
+            <h3 class="dish-name">Caesar Salad</h3>
+            <p class="dish-description">Romaine, parmesan, croutons</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$8.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.5</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="dish-image">
+           <a href="products.html"> <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400" alt="Triple Chocolate Sundae" /></a>
+            <button class="quick-add" aria-label="Add Triple Chocolate Sundae to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Sweet Treats</div>
+            <h3 class="dish-name">Triple Chocolate Sundae</h3>
+            <p class="dish-description">3 scoops, fudge, whipped cream</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$7.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.8</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="dish-image">
+           <a href="products.html"> <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400" alt="Spicy Fried Chicken" /></a>
+            <div class="dish-badge">Spicy</div>
+            <button class="quick-add" aria-label="Add Spicy Fried Chicken to cart"><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="dish-info">
+            <div class="dish-category">Crispy Chicken</div>
+            <h3 class="dish-name">Spicy Fried Chicken</h3>
+            <p class="dish-description">6 pieces, Nashville hot style</p>
+            <div class="dish-footer">
+              <div class="dish-price"><span class="current-price">$13.99</span></div>
+              <div class="dish-rating"><i class="fas fa-star"></i><span>4.7</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       HOW IT WORKS
+  ========================= -->
+  <section class="how-it-works" id="how-it-works" aria-label="How it works">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Process</span>
+        <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+        <p class="section-description">Order your food in just a few simple steps</p>
+      </div>
+
+      <div class="steps-wrapper">
+        <div class="steps-line" aria-hidden="true"></div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">01</div>
+          <div class="step-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Choose Location</h3>
+          <p>Enter your delivery address to find restaurants near you</p>
+        </div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-number">02</div>
+          <div class="step-icon"><i class="fas fa-utensils"></i></div>
+          <h3>Choose Restaurant</h3>
+          <p>Browse through our partner restaurants and menus</p>
+        </div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-number">03</div>
+          <div class="step-icon"><i class="fas fa-shopping-bag"></i></div>
+          <h3>Make Your Order</h3>
+          <p>Add your favorite dishes to cart and checkout</p>
+        </div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="400">
+          <div class="step-number">04</div>
+          <div class="step-icon"><i class="fas fa-truck"></i></div>
+          <h3>Fast Delivery</h3>
+          <p>Get your food delivered hot and fresh to your door</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       SPECIAL OFFERS
+  ========================= -->
+  <section class="special-offers" aria-label="Special offers">
+    <div class="container">
+      <div class="offers-grid">
+        <div class="offer-card offer-large" data-aos="fade-right">
+          <div class="offer-content">
+            <span class="offer-badge">Limited Time</span>
+            <h2>Get 50% Off Your First Order</h2>
+            <p>New customers get exclusive discount on their first order. Use code: FOODIE50</p>
+            <a href="#" class="btn btn-white">Order Now</a>
+          </div>
+          <div class="offer-image"><img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400" alt="Burger offer" /></div>
+        </div>
+
+        <div class="offer-card offer-small" data-aos="fade-left" data-aos-delay="100">
+          <div class="offer-content">
+            <span class="offer-badge">Free Delivery</span>
+            <h3>Free Delivery on Orders $25+</h3>
+            <p>No minimum order for premium members</p>
+            <a href="#" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="offer-card offer-small" data-aos="fade-left" data-aos-delay="200">
+          <div class="offer-content">
+            <span class="offer-badge">Rewards</span>
+            <h3>Earn Points on Every Order</h3>
+            <p>Join our loyalty program today</p>
+            <a href="#" class="btn-link">Join Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       TESTIMONIALS
+  ========================= -->
+  <section class="testimonials" id="testimonials" aria-label="Customer testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Reviews</span>
+        <h2 class="section-title">What Our <span class="gradient-text">Customers Say</span></h2>
+        <p class="section-description">Real reviews from real customers</p>
+      </div>
+
+      <div class="testimonials-slider" data-aos="fade-up">
+        <div class="testimonials-track" id="testimonialsTrack" aria-live="polite">
+          <!-- Testimonial cards (carousel track will be controlled by script.js) -->
+          <div class="testimonial-card">
+            <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text">"Amazing service! The food arrived hot and fresh within 25 minutes. The app is so easy to use and the delivery person was very friendly. Definitely my go-to food delivery app now!"</p>
+            <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" /><div class="author-info"><h4>Sarah Johnson</h4><span>Verified Customer</span></div></div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text">"Best food delivery service in the city! Wide variety of restaurants, great prices, and super fast delivery. I've been using it for 6 months and never had a single issue."</p>
+            <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" /><div class="author-info"><h4>Michael Chen</h4><span>Verified Customer</span></div></div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="testimonial-text">"The tracking feature is amazing - I can see exactly where my order is. Customer support is also very responsive. Highly recommend this app to everyone!"</p>
+            <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Davis" /><div class="author-info"><h4>Emily Davis</h4><span>Verified Customer</span></div></div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text">"As a busy professional, this app has been a lifesaver! The scheduled delivery feature is perfect for planning meals ahead. Love the loyalty points system too!"</p>
+            <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson" /><div class="author-info"><h4>David Wilson</h4><span>Verified Customer</span></div></div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testimonial-text">"The variety of cuisines available is incredible! From local favorites to international cuisine, everything is just a tap away. Great deals and discounts too!"</p>
+            <div class="testimonial-author"><img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Lisa Thompson" /><div class="author-info"><h4>Lisa Thompson</h4><span>Verified Customer</span></div></div>
+          </div>
+        </div>
+
+        <!-- Slider nav -->
+        <div class="slider-nav">
+          <button class="slider-btn prev" id="prevBtn" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+          <div class="slider-dots" id="sliderDots" aria-hidden="true"></div>
+          <button class="slider-btn next" id="nextBtn" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       APP DOWNLOAD
+  ========================= -->
+  <section class="app-download" aria-label="App download">
+    <div class="container">
+      <div class="app-content" data-aos="fade-right">
+        <span class="section-badge">Mobile App</span>
+        <h2>Download Our App For <span class="gradient-text">Faster Ordering</span></h2>
+        <p>Get exclusive app-only offers and faster checkout with our mobile app. Available for iOS and Android devices.</p>
+
+        <ul class="app-features">
+          <li><i class="fas fa-check-circle"></i> Easy navigation and ordering</li>
+          <li><i class="fas fa-check-circle"></i> Real-time order tracking</li>
+          <li><i class="fas fa-check-circle"></i> Exclusive app discounts</li>
+          <li><i class="fas fa-check-circle"></i> Save favorite restaurants</li>
+        </ul>
+
+        <div class="app-buttons">
+          <a href="#" class="app-btn"><i class="fab fa-apple"></i><div><span>Download on the</span><strong>App Store</strong></div></a>
+          <a href="#" class="app-btn"><i class="fab fa-google-play"></i><div><span>Get it on</span><strong>Google Play</strong></div></a>
+        </div>
+      </div>
+
+      <div class="app-image" data-aos="fade-left">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400" alt="Mobile app" />
+        <div class="app-notification notification-1"><i class="fas fa-bell"></i><span>Your order is on the way!</span></div>
+        <div class="app-notification notification-2"><i class="fas fa-check"></i><span>Order delivered!</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       NEWSLETTER / CONTACT
+  ========================= -->
+  <section class="newsletter" id="contact" aria-label="Newsletter">
+    <div class="container">
+      <div class="newsletter-content" data-aos="fade-up">
+        <h2>Get Delicious Deals & Updates</h2>
+        <p>Subscribe to our newsletter and get exclusive offers, new restaurant alerts, and food tips!</p>
+
+        <form class="newsletter-form" id="newsletterForm">
+          <div class="input-group">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <input type="email" placeholder="Enter your email address" required aria-label="Email address" />
+            <button type="submit" class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+          </div>
+        </form>
+
+        <div class="newsletter-features">
+          <div class="feature"><i class="fas fa-gift"></i><span>Exclusive Deals</span></div>
+          <div class="feature"><i class="fas fa-store"></i><span>New Restaurants</span></div>
+          <div class="feature"><i class="fas fa-percent"></i><span>Weekly Discounts</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Company -->
+        <div class="footer-column">
+          <a href="#home" class="footer-logo"><i class="fas fa-utensils"></i><span>Foodie<span class="highlight">Express</span></span></a>
+          <p>Your favorite food, delivered fast. Order from the best restaurants in your area and enjoy delicious meals at home.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Restaurants</a></li>
+            <li><a href="#">Popular Dishes</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i><span>123 Food Street, NYC 10001</span></li>
+            <li><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></li>
+            <li><i class="fas fa-envelope"></i><span>support@foodieexpress.com</span></li>
+            <li><i class="fas fa-clock"></i><span>24/7 Support Available</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="footer-payment">
+        <span>We Accept:</span>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-amex"></i>
+          <i class="fab fa-cc-paypal"></i><i class="fab fa-cc-apple-pay"></i><i class="fab fa-google-pay"></i>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 FoodieExpress. All rights reserved. Made with <i class="fas fa-heart" aria-hidden="true"></i> for food lovers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       SCROLL TO TOP
+  ========================= -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- =========================
+       LIBRARIES & SCRIPTS
+       (AOS init + custom scripts)
+  ========================= -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    if (window.AOS) {
+      AOS.init({ once: true, mirror: false });
+    }
+  </script>
+
+  <!-- Custom script (create script.js in same folder) -->
+  <script src="index.js"></script>
+</body>
+</html>

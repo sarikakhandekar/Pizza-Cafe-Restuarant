@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - FoodieExpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="payment.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="payment-header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="back-btn" onclick="goBack()" title="Go back">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Complete Payment</h1>
+                    <p>Secure checkout</p>
+                </div>
+            </div>
+            <div class="secure-badge">
+                <i class="fas fa-lock"></i>
+                <span>256-bit SSL Secured</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+        <div class="steps-container">
+            <div class="step completed">
+                <div class="step-circle"><i class="fas fa-check"></i></div>
+                <span class="step-label">Cart</span>
+            </div>
+            <div class="step-line completed"></div>
+            <div class="step completed">
+                <div class="step-circle"><i class="fas fa-check"></i></div>
+                <span class="step-label">Checkout</span>
+            </div>
+            <div class="step-line completed"></div>
+            <div class="step active">
+                <div class="step-circle">3</div>
+                <span class="step-label">Payment</span>
+            </div>
+            <div class="step-line pending"></div>
+            <div class="step pending">
+                <div class="step-circle">4</div>
+                <span class="step-label">Confirmation</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="payment-container">
+        <!-- Payment Methods Section -->
+        <section class="payment-methods-section">
+            <div class="section-header">
+                <h2><i class="fas fa-credit-card"></i> Select Payment Method</h2>
+            </div>
+
+            <div class="payment-options">
+                <!-- Cash on Delivery -->
+                <div class="payment-option" data-method="cod" onclick="selectPaymentMethod('cod')">
+                    <div class="payment-option-header">
+                        <div class="radio-custom"></div>
+                        <div class="payment-icon cod">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="payment-info">
+                            <h3>Cash on Delivery</h3>
+                            <p>Pay when your order arrives</p>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-details-content">
+                            <div class="cod-info">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <div>
+                                    <h4>Pay when your order arrives</h4>
+                                    <p>Keep exact change ready for contactless delivery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UPI Payment -->
+                <div class="payment-option" data-method="upi" onclick="selectPaymentMethod('upi')">
+                    <div class="payment-option-header">
+                        <div class="radio-custom"></div>
+                        <div class="payment-icon upi">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="payment-info">
+                            <h3>UPI Payment</h3>
+                            <p>Google Pay, PhonePe, Paytm & more</p>
+                        </div>
+                        <span class="payment-badge">POPULAR</span>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-details-content">
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-light);">Choose your preferred UPI app</p>
+                            <div class="upi-apps">
+                                <div class="upi-app" data-app="gpay" onclick="selectUpiApp(event, 'gpay')">
+                                    <div class="upi-app-icon gpay">G</div>
+                                    <span>Google Pay</span>
+                                </div>
+                                <div class="upi-app" data-app="phonepe" onclick="selectUpiApp(event, 'phonepe')">
+                                    <div class="upi-app-icon phonepe">P</div>
+                                    <span>PhonePe</span>
+                                </div>
+                                <div class="upi-app" data-app="paytm" onclick="selectUpiApp(event, 'paytm')">
+                                    <div class="upi-app-icon paytm">₽</div>
+                                    <span>Paytm</span>
+                                </div>
+                                <div class="upi-app" data-app="other" onclick="selectUpiApp(event, 'other')">
+                                    <div class="upi-app-icon other">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </div>
+                                    <span>Other</span>
+                                </div>
+                            </div>
+
+                            <div class="upi-divider">
+                                <span>OR Enter UPI ID</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="upiId">UPI ID <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-at"></i>
+                                    <input type="text" id="upiId" placeholder="example@upi" oninput="validateUpiId()">
+                                </div>
+                                <p class="error-message" id="upiError">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Please enter a valid UPI ID</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Payment -->
+                <div class="payment-option" data-method="card" onclick="selectPaymentMethod('card')">
+                    <div class="payment-option-header">
+                        <div class="radio-custom"></div>
+                        <div class="payment-icon card">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="payment-info">
+                            <h3>Debit / Credit Card</h3>
+                            <p>Visa, Mastercard, Rupay & more</p>
+                        </div>
+                    </div>
+                    <div class="payment-details">
+                        <div class="payment-details-content">
+                            <!-- Saved Cards (Example) -->
+                            <div class="saved-cards" id="savedCards" style="display: none;">
+                                <div class="saved-cards-header">
+                                    <h4>Saved Cards</h4>
+                                </div>
+                                <div class="saved-card" onclick="selectSavedCard(this)">
+                                    <div class="saved-card-icon">
+                                        <i class="fab fa-cc-visa"></i>
+                                    </div>
+                                    <div class="saved-card-info">
+                                        <h5>•••• •••• •••• 4242</h5>
+                                        <p>Expires 12/25</p>
+                                    </div>
+                                    <div class="radio-custom"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number <span>*</span></label>
+                                <div class="input-wrapper card-input-container">
+                                    <i class="fas fa-credit-card"></i>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this); detectCardType()">
+                                    <i class="card-type-icon" id="cardTypeIcon"></i>
+                                </div>
+                                <p class="error-message" id="cardNumberError">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Please enter a valid 16-digit card number</span>
+                                </p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date <span>*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" oninput="formatExpiryDate(this)">
+                                    </div>
+                                    <p class="error-message" id="expiryError">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>Invalid expiry date</span>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV <span>*</span></label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="cvv" placeholder="•••" maxlength="4" oninput="validateCvv()">
+                                    </div>
+                                    <p class="error-message" id="cvvError">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>CVV must be 3 digits</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name <span>*</span></label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="cardName" placeholder="Name as on card" oninput="validateCardName()">
+                                </div>
+                                <p class="error-message" id="cardNameError">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span>Please enter cardholder name</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Secure Payments</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-lock"></i>
+                    <span>SSL Encrypted</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-undo"></i>
+                    <span>Easy Refunds</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Summary Section -->
+        <aside class="order-summary-section">
+            <div class="summary-card">
+                <div class="summary-header">
+                    <h3><i class="fas fa-receipt"></i> Order Summary</h3>
+                    <a href="checkout.html" class="edit-order">Edit</a>
+                </div>
+
+                <div class="summary-items" id="summaryItems">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+
+                <div class="summary-breakdown">
+                    <div class="breakdown-row">
+                        <span>Item Total</span>
+                        <span id="itemTotal">₹0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Delivery Fee</span>
+                        <span id="deliveryFee">₹0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Taxes & Charges</span>
+                        <span id="taxes">₹0</span>
+                    </div>
+                    <div class="breakdown-row discount" id="discountRow" style="display: none;">
+                        <span>Discount</span>
+                        <span id="discount">-₹0</span>
+                    </div>
+                    <div class="breakdown-row" id="tipRow" style="display: none;">
+                        <span>Delivery Tip</span>
+                        <span id="tip">₹0</span>
+                    </div>
+                    <div class="breakdown-total">
+                        <span>Grand Total</span>
+                        <span id="grandTotal">₹0</span>
+                    </div>
+                </div>
+
+                <div class="pay-button-container">
+                    <button class="pay-btn" id="payBtn" onclick="processPayment()">
+                        <span class="pay-btn-text" id="payBtnText">
+                            <i class="fas fa-lock"></i>
+                            <span>Place Order</span>
+                        </span>
+                        <span id="payAmount">• ₹0</span>
+                    </button>
+                    <a href="cart.html" class="cancel-payment">
+                        <i class="fas fa-times"></i> Cancel Payment
+                    </a>
+                </div>
+            </div>
+
+            <!-- Delivery Info -->
+            <div class="delivery-info-card">
+                <div class="delivery-info-header">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Delivering to</h4>
+                </div>
+                <div class="delivery-address" id="deliveryAddress">
+                    <strong>Home</strong><br>
+                    Loading address...
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-content">
+            <h3 id="loadingTitle">Processing Payment</h3>
+            <p id="loadingSubtitle">Please don't close this window</p>
+            <div class="loading-steps">
+                <div class="loading-step" id="step1">
+                    <div class="spinner-small"></div>
+                    <span>Verifying payment details...</span>
+                </div>
+                <div class="loading-step" id="step2">
+                    <i class="far fa-circle"></i>
+                    <span>Processing transaction...</span>
+                </div>
+             <div class="loading-step" id="step3">
+                    <i class="far fa-circle"></i>
+                    <a href="confirmation.html"></a> <span>Confirming order...</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="payment.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FoodExpress | Secure Checkout</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+    <header class="checkout-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Food<span class="highlight">Express</span></span>
+            </a>
+            
+            <!-- Checkout Progress Steps -->
+            <div class="checkout-steps">
+                <div class="step completed">
+                    <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span>Cart</span>
+                </div>
+                <div class="step-line completed"></div>
+                <div class="step active">
+                    <div class="step-icon">
+                        <span>2</span>
+                    </div>
+                    <span>Checkout</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon">
+                        <span>3</span>
+                    </div>
+                    <span>Payment</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon">
+                        <span>4</span>
+                    </div>
+                    <span>Confirmation</span>
+                </div>
+            </div>
+
+            <!-- Secure Badge -->
+            <div class="secure-badge">
+                <i class="fas fa-lock"></i>
+                <span>Secure Checkout</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Checkout Container -->
+    <main class="checkout-main">
+        <div class="checkout-container">
+            <!-- Left Section - Delivery Details -->
+            <section class="delivery-section">
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="header-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="header-text">
+                            <h2>Delivery Address</h2>
+                            <p>Add your delivery location</p>
+                        </div>
+                    </div>
+
+                    <!-- Saved Addresses (if any) -->
+                    <div class="saved-addresses" id="savedAddresses">
+                        <h3>Saved Addresses</h3>
+                        <div class="address-list" id="addressList">
+                            <!-- Dynamically loaded saved addresses -->
+                        </div>
+                        <button type="button" class="add-new-address-btn" id="addNewAddressBtn">
+                            <i class="fas fa-plus"></i>
+                            Add New Address
+                        </button>
+                    </div>
+
+                    <!-- Address Form -->
+                    <form id="deliveryForm" class="delivery-form">
+                        <!-- Address Type Selection -->
+                        <div class="address-type-section">
+                            <label class="form-label">Address Type</label>
+                            <div class="address-type-options">
+                                <label class="address-type-card">
+                                    <input type="radio" name="addressType" value="home" checked>
+                                    <div class="type-content">
+                                        <i class="fas fa-home"></i>
+                                        <span>Home</span>
+                                    </div>
+                                </label>
+                                <label class="address-type-card">
+                                    <input type="radio" name="addressType" value="office">
+                                    <div class="type-content">
+                                        <i class="fas fa-building"></i>
+                                        <span>Office</span>
+                                    </div>
+                                </label>
+                                <label class="address-type-card">
+                                    <input type="radio" name="addressType" value="other">
+                                    <div class="type-content">
+                                        <i class="fas fa-map-pin"></i>
+                                        <span>Other</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <i class="fas fa-user"></i>
+                                Personal Information
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName" class="form-label">
+                                        Full Name <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input 
+                                            type="text" 
+                                            id="fullName" 
+                                            name="fullName" 
+                                            class="form-input"
+                                            placeholder="Enter your full name"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="fullNameError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mobile" class="form-label">
+                                        Mobile Number <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <span class="country-code">+91</span>
+                                        <input 
+                                            type="tel" 
+                                            id="mobile" 
+                                            name="mobile" 
+                                            class="form-input with-prefix"
+                                            placeholder="Enter 10-digit mobile number"
+                                            maxlength="10"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="mobileError"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    Email Address <span class="optional">(Optional)</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        class="form-input"
+                                        placeholder="Enter your email for order updates"
+                                    >
+                                </div>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                        </div>
+
+                        <!-- Address Details -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Address Details
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="houseNo" class="form-label">
+                                        House / Flat No <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-home input-icon"></i>
+                                        <input 
+                                            type="text" 
+                                            id="houseNo" 
+                                            name="houseNo" 
+                                            class="form-input"
+                                            placeholder="e.g., Flat 101, Tower B"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="houseNoError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="street" class="form-label">
+                                        Street / Area <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-road input-icon"></i>
+                                        <input 
+                                            type="text" 
+                                            id="street" 
+                                            name="street" 
+                                            class="form-input"
+                                            placeholder="e.g., MG Road, Sector 5"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="streetError"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row three-columns">
+                                <div class="form-group">
+                                    <label for="city" class="form-label">
+                                        City <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-city input-icon"></i>
+                                        <input 
+                                            type="text" 
+                                            id="city" 
+                                            name="city" 
+                                            class="form-input"
+                                            placeholder="Enter city"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="cityError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="state" class="form-label">
+                                        State <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-map input-icon"></i>
+                                        <select id="state" name="state" class="form-input form-select" required>
+                                            <option value="">Select State</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                            <!-- Add more states as needed -->
+                                        </select>
+                                    </div>
+                                    <span class="error-message" id="stateError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pincode" class="form-label">
+                                        Pincode <span class="required">*</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-map-pin input-icon"></i>
+                                        <input 
+                                            type="text" 
+                                            id="pincode" 
+                                            name="pincode" 
+                                            class="form-input"
+                                            placeholder="6-digit pincode"
+                                            maxlength="6"
+                                            required
+                                        >
+                                    </div>
+                                    <span class="error-message" id="pincodeError"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="landmark" class="form-label">
+                                    Landmark <span class="optional">(Optional)</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-landmark input-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        id="landmark" 
+                                        name="landmark" 
+                                        class="form-input"
+                                        placeholder="e.g., Near City Mall, Opposite Metro Station"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instructions" class="form-label">
+                                    Delivery Instructions <span class="optional">(Optional)</span>
+                                </label>
+                                <div class="input-wrapper textarea-wrapper">
+                                    <i class="fas fa-clipboard-list input-icon"></i>
+                                    <textarea 
+                                        id="instructions" 
+                                        name="instructions" 
+                                        class="form-input form-textarea"
+                                        placeholder="e.g., Gate ke paas call karna, Ring the doorbell twice"
+                                        rows="3"
+                                    ></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Save Address Checkbox -->
+                            <div class="save-address-option">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="saveAddress" name="saveAddress">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Save this address for future orders</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Time Slot -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">
+                                <i class="fas fa-clock"></i>
+                                Delivery Time
+                            </h3>
+                            
+                            <div class="delivery-time-slots">
+                                <label class="time-slot-card">
+                                    <input type="radio" name="deliveryTime" value="asap" checked>
+                                    <div class="slot-content">
+                                        <i class="fas fa-bolt"></i>
+                                        <div class="slot-info">
+                                            <span class="slot-title">Express Delivery</span>
+                                            <span class="slot-time">25-35 mins</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="time-slot-card">
+                                    <input type="radio" name="deliveryTime" value="scheduled">
+                                    <div class="slot-content">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div class="slot-info">
+                                            <span class="slot-title">Schedule Later</span>
+                                            <span class="slot-time">Choose time</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Scheduled Time Picker (Hidden by default) -->
+                            <div class="scheduled-time-picker" id="scheduledTimePicker">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="deliveryDate" class="form-label">Select Date</label>
+                                        <input type="date" id="deliveryDate" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deliveryTimeSlot" class="form-label">Select Time Slot</label>
+                                        <select id="deliveryTimeSlot" class="form-input form-select">
+                                            <option value="">Select time slot</option>
+                                            <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                                            <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                                            <option value="12:00-13:00">12:00 PM - 1:00 PM</option>
+                                            <option value="13:00-14:00">1:00 PM - 2:00 PM</option>
+                                            <option value="18:00-19:00">6:00 PM - 7:00 PM</option>
+                                            <option value="19:00-20:00">7:00 PM - 8:00 PM</option>
+                                            <option value="20:00-21:00">8:00 PM - 9:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Method Section -->
+                <div class="section-card payment-section">
+                    <div class="section-header">
+                        <div class="header-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="header-text">
+                            <h2>Payment Method</h2>
+                            <p>Choose how you want to pay</p>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <label class="payment-method-card">
+                            <input type="radio" name="paymentMethod" value="cod" checked>
+                            <div class="method-content">
+                                <div class="method-icon cod-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">Cash on Delivery</span>
+                                    <span class="method-desc">Pay when your order arrives</span>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="payment-method-card">
+                            <input type="radio" name="paymentMethod" value="upi">
+                            <div class="method-content">
+                                <div class="method-icon upi-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">UPI Payment</span>
+                                    <span class="method-desc">GPay, PhonePe, Paytm & more</span>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                            <div class="upi-apps">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png" alt="GPay">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/512px-PhonePe_Logo.svg.png" alt="PhonePe">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/512px-Paytm_Logo_%28standalone%29.svg.png" alt="Paytm">
+                            </div>
+                        </label>
+
+                        <label class="payment-method-card">
+                            <input type="radio" name="paymentMethod" value="card">
+                            <div class="method-content">
+                                <div class="method-icon card-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">Credit / Debit Card</span>
+                                    <span class="method-desc">Visa, Mastercard, RuPay</span>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                            <div class="card-logos">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                            </div>
+                        </label>
+
+                        <label class="payment-method-card">
+                            <input type="radio" name="paymentMethod" value="wallet">
+                            <div class="method-content">
+                                <div class="method-icon wallet-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="method-info">
+                                    <span class="method-title">FoodExpress Wallet</span>
+                                    <span class="method-desc" id="walletBalance">Balance: ₹0.00</span>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Section - Order Summary -->
+            <aside class="order-summary-section">
+                <div class="summary-card sticky">
+                    <!-- Restaurant Info -->
+                    <div class="restaurant-info" id="restaurantInfo">
+                        <img src="" alt="Restaurant" id="restaurantImage" class="restaurant-image">
+                        <div class="restaurant-details">
+                            <h3 id="restaurantName">Restaurant Name</h3>
+                            <p id="restaurantAddress">Restaurant Address</p>
+                        </div>
+                    </div>
+
+                    <!-- Order Items -->
+                    <div class="order-items-section">
+                        <div class="section-title">
+                            <h3>Order Summary</h3>
+                            <a href="cart.html" class="edit-cart-link">
+                                <i class="fas fa-edit"></i>
+                                Edit Cart
+                            </a>
+                        </div>
+
+                        <div class="order-items-list" id="orderItemsList">
+                            <!-- Items will be loaded dynamically -->
+                        </div>
+
+                        <!-- Add More Items -->
+                        <button type="button" class="add-more-items-btn" id="addMoreItemsBtn">
+                            <i class="fas fa-plus-circle"></i>
+                            Add more items
+                        </button>
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <div class="special-instructions">
+                        <label for="orderNote" class="form-label">
+                            <i class="fas fa-sticky-note"></i>
+                            Add cooking instructions
+                        </label>
+                        <textarea 
+                            id="orderNote" 
+                            class="form-input form-textarea"
+                            placeholder="e.g., Less spicy, No onion, Extra cheese..."
+                            rows="2"
+                        ></textarea>
+                    </div>
+
+                    <!-- Coupon Section -->
+                    <div class="coupon-section">
+                        <div class="coupon-header" id="couponToggle">
+                            <div class="coupon-title">
+                                <i class="fas fa-tag"></i>
+                                <span>Apply Coupon</span>
+                            </div>
+                            <i class="fas fa-chevron-down coupon-arrow"></i>
+                        </div>
+
+                        <div class="coupon-content" id="couponContent">
+                            <div class="coupon-input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="couponCode" 
+                                    class="coupon-input"
+                                    placeholder="Enter coupon code"
+                                >
+                                <button type="button" id="applyCouponBtn" class="apply-coupon-btn">
+                                    Apply
+                                </button>
+                            </div>
+                            <div class="coupon-message" id="couponMessage"></div>
+
+                            <!-- Available Coupons -->
+                            <div class="available-coupons">
+                                <h4>Available Offers</h4>
+                                <div class="coupon-list" id="couponList">
+                                    <div class="coupon-item" data-code="WELCOME50">
+                                        <div class="coupon-badge">50% OFF</div>
+                                        <div class="coupon-details">
+                                            <span class="coupon-code-display">WELCOME50</span>
+                                            <span class="coupon-desc">Get 50% off up to ₹100</span>
+                                        </div>
+                                        <button type="button" class="apply-this-btn">Apply</button>
+                                    </div>
+                                    <div class="coupon-item" data-code="FREEDEL">
+                                        <div class="coupon-badge">FREE</div>
+                                        <div class="coupon-details">
+                                            <span class="coupon-code-display">FREEDEL</span>
+                                            <span class="coupon-desc">Free delivery on this order</span>
+                                        </div>
+                                        <button type="button" class="apply-this-btn">Apply</button>
+                                    </div>
+                                    <div class="coupon-item" data-code="SAVE100">
+                                        <div class="coupon-badge">₹100 OFF</div>
+                                        <div class="coupon-details">
+                                            <span class="coupon-code-display">SAVE100</span>
+                                            <span class="coupon-desc">Flat ₹100 off on orders above ₹500</span>
+                                        </div>
+                                        <button type="button" class="apply-this-btn">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Applied Coupon Display -->
+                        <div class="applied-coupon" id="appliedCoupon">
+                            <div class="applied-coupon-info">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="applied-details">
+                                    <span class="applied-code" id="appliedCode">WELCOME50</span>
+                                    <span class="applied-savings" id="appliedSavings">You saved ₹100!</span>
+                                </div>
+                            </div>
+                            <button type="button" class="remove-coupon-btn" id="removeCouponBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tip Section -->
+                    <div class="tip-section">
+                        <div class="tip-header">
+                            <div class="tip-title">
+                                <i class="fas fa-heart"></i>
+                                <span>Tip your delivery partner</span>
+                            </div>
+                        </div>
+                        <div class="tip-options">
+                            <button type="button" class="tip-btn" data-tip="0">No tip</button>
+                            <button type="button" class="tip-btn" data-tip="20">₹20</button>
+                            <button type="button" class="tip-btn active" data-tip="30">₹30</button>
+                            <button type="button" class="tip-btn" data-tip="50">₹50</button>
+                            <button type="button" class="tip-btn custom-tip" data-tip="custom">Other</button>
+                        </div>
+                        <div class="custom-tip-input" id="customTipInput">
+                            <input type="number" id="customTipAmount" placeholder="Enter amount" min="0">
+                        </div>
+                        <p class="tip-message">
+                            <i class="fas fa-info-circle"></i>
+                            100% of your tip goes to the delivery partner
+                        </p>
+                    </div>
+
+                    <!-- Bill Details -->
+                    <div class="bill-details">
+                        <h3 class="bill-title">Bill Details</h3>
+                        
+                        <div class="bill-row">
+                            <span>Item Total</span>
+                            <span id="itemTotal">₹0.00</span>
+                        </div>
+                        
+                        <div class="bill-row discount" id="discountRow">
+                            <span>Discount</span>
+                            <span class="discount-amount" id="discountAmount">-₹0.00</span>
+                        </div>
+                        
+                        <div class="bill-row">
+                            <span>
+                                Delivery Fee
+                                <i class="fas fa-info-circle info-icon" title="Delivery charges"></i>
+                            </span>
+                            <span id="deliveryFee">₹40.00</span>
+                        </div>
+                        
+                        <div class="bill-row" id="deliveryDiscountRow">
+                            <span>Delivery Discount</span>
+                            <span class="discount-amount" id="deliveryDiscount">-₹0.00</span>
+                        </div>
+                        
+                        <div class="bill-row">
+                            <span>
+                                Platform Fee
+                                <i class="fas fa-info-circle info-icon" title="Platform charges"></i>
+                            </span>
+                            <span id="platformFee">₹5.00</span>
+                        </div>
+                        
+                        <div class="bill-row">
+                            <span>
+                                GST & Taxes
+                                <i class="fas fa-info-circle info-icon" title="Government taxes"></i>
+                            </span>
+                            <span id="taxAmount">₹0.00</span>
+                        </div>
+                        
+                        <div class="bill-row tip-row" id="tipRow">
+                            <span>Delivery Partner Tip</span>
+                            <span id="tipAmount">₹30.00</span>
+                        </div>
+
+                        <div class="bill-divider"></div>
+
+                        <div class="bill-row total-row">
+                            <span>To Pay</span>
+                            <span class="grand-total" id="grandTotal">₹0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Savings Banner -->
+                    <div class="savings-banner" id="savingsBanner">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Your total savings on this order: <strong id="totalSavings">₹0.00</strong></span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="checkout-actions">
+                        <a href="cart2.html"> <button type="button" class="back-to-cart-btn" id="backToCartBtn">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Cart
+                        </button></a>
+                        
+                        <button type="button" class="proceed-payment-btn" id="proceedPaymentBtn">
+                            <span class="btn-text">Proceed to Payment</span>
+                            <span class="btn-amount" id="btnAmount">₹0.00</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Secure</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-undo"></i>
+                            <span>Easy Refunds</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="checkout-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <p class="copyright">
+                © 2024 FoodExpress. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing your order...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

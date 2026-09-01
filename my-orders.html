@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - FoodieExpress</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="my-orders.css">
+</head>
+<body>
+    
+    <!-- ========== PAGE HEADER ========== -->
+    <header class="page-header">
+        <div class="header-container">
+            <!-- Back Button -->
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="page-title">
+                <i class="fas fa-receipt"></i>
+                My Orders
+            </h1>
+            
+            <!-- Filter Dropdown -->
+            <div class="filter-dropdown">
+                <select id="orderFilter" aria-label="Filter orders">
+                    <option value="all">All Orders</option>
+                    <option value="active">Active Orders</option>
+                    <option value="past">Past Orders</option>
+                </select>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Orders Statistics Bar -->
+            <div class="orders-stats" id="ordersStats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalOrdersCount">0</span>
+                    <span class="stat-label">Total Orders</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="activeOrdersCount">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="deliveredOrdersCount">0</span>
+                    <span class="stat-label">Delivered</span>
+                </div>
+            </div>
+
+            <!-- Orders List Container -->
+            <div class="orders-list" id="ordersList">
+                <!-- Order cards will be dynamically inserted here -->
+            </div>
+
+            <!-- ========== EMPTY STATE ========== -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h2 class="empty-state-title">No Orders Yet!</h2>
+                <p class="empty-state-text">
+                    You have not placed any orders yet. 
+                    <br>Start exploring delicious food!
+                </p>
+                <a href="index.html" class="start-ordering-btn">
+                    <i class="fas fa-utensils"></i>
+                    Start Ordering
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ========== ORDER DETAILS MODAL ========== -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-container">
+            
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i class="fas fa-file-invoice"></i>
+                    Order Details
+                </h2>
+                <button class="modal-close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body" id="modalBody">
+                
+                <!-- Order Info Section -->
+                <div class="detail-section order-info-section">
+                    <div class="order-id-display">
+                        <span class="label">Order ID:</span>
+                        <span class="value" id="modalOrderId">#FE12345</span>
+                    </div>
+                    <div class="order-date-display">
+                        <span class="label">Placed on:</span>
+                        <span class="value" id="modalOrderDate">Jan 10, 2025 at 6:30 PM</span>
+                    </div>
+                    <div class="order-status-display">
+                        <span class="label">Status:</span>
+                        <span class="status-badge" id="modalOrderStatus">Delivered</span>
+                    </div>
+                </div>
+
+                <!-- Order Timeline -->
+                <div class="detail-section timeline-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-route"></i>
+                        Order Timeline
+                    </h3>
+                    <div class="order-timeline" id="orderTimeline">
+                        <div class="timeline-step completed" data-step="placed">
+                            <div class="step-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="step-info">
+                                <span class="step-title">Order Placed</span>
+                                <span class="step-time">6:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step completed" data-step="confirmed">
+                            <div class="step-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="step-info">
+                                <span class="step-title">Order Confirmed</span>
+                                <span class="step-time">6:32 PM</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step active" data-step="preparing">
+                            <div class="step-icon">
+                                <i class="fas fa-fire-burner"></i>
+                            </div>
+                            <div class="step-info">
+                                <span class="step-title">Preparing</span>
+                                <span class="step-time">In Progress</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step" data-step="out-for-delivery">
+                            <div class="step-icon">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                            <div class="step-info">
+                                <span class="step-title">Out for Delivery</span>
+                                <span class="step-time">Pending</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step" data-step="delivered">
+                            <div class="step-icon">
+                                <i class="fas fa-house-circle-check"></i>
+                            </div>
+                            <div class="step-info">
+                                <span class="step-title">Delivered</span>
+                                <span class="step-time">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ordered Items Section -->
+                <div class="detail-section items-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-burger"></i>
+                        Ordered Items
+                    </h3>
+                    <div class="items-list" id="modalItemsList">
+                        <!-- Items will be inserted dynamically -->
+                    </div>
+                </div>
+
+                <!-- Delivery Address Section -->
+                <div class="detail-section address-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-location-dot"></i>
+                        Delivery Address
+                    </h3>
+                    <p class="address-text" id="modalAddress">
+                        123 Main Street, Mumbai, India
+                    </p>
+                </div>
+
+                <!-- Bill Breakdown Section -->
+                <div class="detail-section bill-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-receipt"></i>
+                        Bill Details
+                    </h3>
+                    <div class="bill-breakdown">
+                        <div class="bill-row">
+                            <span>Item Total</span>
+                            <span id="modalSubtotal">₹0</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Delivery Fee</span>
+                            <span id="modalDeliveryFee">₹40</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Taxes & Charges</span>
+                            <span id="modalTax">₹0</span>
+                        </div>
+                        <div class="bill-row discount-row" id="discountRow">
+                            <span>Discount</span>
+                            <span id="modalDiscount">-₹0</span>
+                        </div>
+                        <div class="bill-row total-row">
+                            <span>Grand Total</span>
+                            <span id="modalGrandTotal">₹0</span>
+                        </div>
+                        <div class="payment-method-row">
+                            <span>
+                                <i class="fas fa-credit-card"></i>
+                                Payment Method
+                            </span>
+                            <span id="modalPaymentMethod">UPI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="trackOrderBtn">
+                    <i class="fas fa-location-crosshairs"></i>
+                    Track Order
+                </button>
+                <button class="modal-btn primary" id="reorderBtn">
+                    <i class="fas fa-rotate-right"></i>
+                    Reorder
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== TOAST NOTIFICATION ========== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="my-orders.js"></script>
+
+</body>
+</html>

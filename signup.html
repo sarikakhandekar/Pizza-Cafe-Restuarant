@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FoodieExpress | Create Your Account</title>
+    <meta name="description" content="Create your FoodieExpress account and start ordering delicious food from hundreds of restaurants.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🍽️</text></svg>'>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body class="signup-page">
+    <!-- ============ FLOATING FOOD BACKGROUND ============ -->
+    <div class="floating-foods" aria-hidden="true">
+        <div class="floating-food" style="top: 5%; left: 5%; animation-delay: 0s;">🍕</div>
+        <div class="floating-food" style="top: 15%; right: 10%; animation-delay: 1s;">🍔</div>
+        <div class="floating-food" style="top: 60%; left: 3%; animation-delay: 2s;">🌮</div>
+        <div class="floating-food" style="top: 80%; right: 5%; animation-delay: 0.5s;">🍜</div>
+        <div class="floating-food" style="top: 40%; right: 3%; animation-delay: 1.5s;">🍣</div>
+        <div class="floating-food" style="bottom: 10%; left: 10%; animation-delay: 2.5s;">🥗</div>
+        <div class="floating-food" style="top: 30%; left: 8%; animation-delay: 3s;">🍰</div>
+        <div class="floating-food" style="bottom: 30%; right: 8%; animation-delay: 0.8s;">🍟</div>
+    </div>
+
+    <!-- ============ MAIN CONTAINER ============ -->
+    <div class="auth-container">
+        <!-- Left Side - Form (Reversed for signup) -->
+        <div class="auth-form-container">
+            <div class="auth-form-wrapper">
+                <!-- Logo -->
+                <a href="index.html" class="auth-logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Foodie<span class="highlight">Express</span></span>
+                </a>
+
+                <!-- Form Header -->
+                <div class="auth-header">
+                    <h1>Create Account</h1>
+                    <p>Join us and start ordering delicious food!</p>
+                </div>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm" novalidate>
+                    <!-- Name Fields Row -->
+                    <div class="form-row">
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    placeholder=" "
+                                    autocomplete="given-name"
+                                    required
+                                >
+                                <label for="firstName">First Name</label>
+                                <div class="input-border"></div>
+                            </div>
+                            <span class="error-message" id="firstNameError"></span>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    placeholder=" "
+                                    autocomplete="family-name"
+                                    required
+                                >
+                                <label for="lastName">Last Name</label>
+                                <div class="input-border"></div>
+                            </div>
+                            <span class="error-message" id="lastNameError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder=" "
+                                autocomplete="email"
+                                required
+                            >
+                            <label for="email">Email Address</label>
+                            <div class="input-border"></div>
+                        </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <!-- Phone Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder=" "
+                                autocomplete="tel"
+                                required
+                            >
+                            <label for="phone">Phone Number</label>
+                            <div class="input-border"></div>
+                        </div>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder=" "
+                                autocomplete="new-password"
+                                required
+                            >
+                            <label for="password">Password</label>
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="input-border"></div>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                        
+                        <!-- Password Strength Indicator -->
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Password strength</span>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword" 
+                                placeholder=" "
+                                autocomplete="new-password"
+                                required
+                            >
+                            <label for="confirmPassword">Confirm Password</label>
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="input-border"></div>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="form-group">
+                        <label class="checkbox-wrapper terms-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </span>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <!-- Newsletter Opt-in -->
+                    <div class="form-group">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">Send me exclusive deals and offers</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span class="btn-text">Create Account</span>
+                        <span class="btn-loader">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span>or sign up with</span>
+                    </div>
+
+                    <!-- Social Login -->
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button type="button" class="social-btn apple">
+                            <i class="fab fa-apple"></i>
+                            <span>Apple</span>
+                        </button>
+                    </div>
+
+                    <!-- Login Link -->
+                    <p class="auth-switch">
+                        Already have an account? 
+                        <a href="login.html">Sign in</a>
+                    </p>
+                </form>
+
+                <!-- Back to Home -->
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side - Illustration -->
+        <div class="auth-illustration signup-illustration">
+            <div class="illustration-content">
+                <div class="illustration-icon">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="Delicious Pizza">
+                    <div class="illustration-overlay"></div>
+                </div>
+                
+                <div class="illustration-text">
+                    <h2>Join FoodieExpress!</h2>
+                    <p>Create an account and enjoy amazing benefits from day one.</p>
+                    
+                    <div class="benefits-cards">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="benefit-info">
+                                <h4>Welcome Bonus</h4>
+                                <p>Get 50% off your first order</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="benefit-info">
+                                <h4>Free Delivery</h4>
+                                <p>On orders above $25</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="benefit-info">
+                                <h4>Earn Points</h4>
+                                <p>Every order gets you rewards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="decorative-circle circle-1"></div>
+                <div class="decorative-circle circle-2"></div>
+                <div class="decorative-circle circle-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ TOAST NOTIFICATION ============ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="signup.js"></script>
+</body>
+</html>

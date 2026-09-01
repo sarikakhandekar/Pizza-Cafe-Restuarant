@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu - FoodieExpress | Order Delicious Pizzas Online</title>
+    <meta name="description" content="Order freshly baked pizzas from FoodieExpress. Choose from classic, gourmet, veggie, and specialty pizzas with fast delivery.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">🍕</text></svg>'>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="pizza.css">
+</head>
+<body>
+    <!-- ============ NAVIGATION BAR ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Foodie<span class="highlight">Express</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link active">Pizza</a></li>
+                <li><a href="products.html" class="nav-link">Burgers</a></li>
+                <li><a href="products.html" class="nav-link">Drinks</a></li>
+                <li><a href="products.html" class="nav-link">Desserts</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions">
+                <div class="search-icon" id="searchIcon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                   <a href="cart2.html"> <i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <a href="login.html" class="btn btn-primary">Login</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="pizza-hero">
+        <div class="hero-background">
+            <div class="floating-ingredient ing-1">🍅</div>
+            <div class="floating-ingredient ing-2">🧀</div>
+            <div class="floating-ingredient ing-3">🫒</div>
+            <div class="floating-ingredient ing-4">🌿</div>
+            <div class="floating-ingredient ing-5">🍄</div>
+            <div class="floating-ingredient ing-6">🌶️</div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="hero-badge">
+                    <span class="badge-icon">🍕</span>
+                    <span>Freshly Baked</span>
+                </div>
+                <h1 class="hero-title">
+                    Artisan <span class="gradient-text">Pizzas</span>
+                    <br>Made With Love
+                </h1>
+                <p class="hero-description">
+                    Experience the authentic taste of Italy with our hand-crafted pizzas. 
+                    Made with fresh ingredients, baked to perfection in our stone ovens.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-fire"></i>
+                        <span>Stone Oven Baked</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <span>Fresh Ingredients</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#pizza-menu" class="btn btn-primary btn-lg">
+                        <span>View Menu</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a href="#deals" class="btn btn-outline btn-lg">
+                        <span>Today's Deals</span>
+                        <i class="fas fa-percent"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+                <div class="pizza-showcase">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="Delicious Pizza">
+                    <div class="showcase-ring"></div>
+                    <div class="showcase-glow"></div>
+                </div>
+                
+                <div class="info-card card-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">⭐</div>
+                    <div class="card-content">
+                        <span class="card-value">4.9</span>
+                        <span class="card-label">Rating</span>
+                    </div>
+                </div>
+                
+                <div class="info-card card-2" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon">🕐</div>
+                    <div class="card-content">
+                        <span class="card-value">25min</span>
+                        <span class="card-label">Delivery</span>
+                    </div>
+                </div>
+                
+                <div class="info-card card-3" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-content">
+                        <span class="card-value">500+</span>
+                        <span class="card-label">Orders Today</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============ SPECIAL DEALS BANNER ============ -->
+    <section class="deals-banner" id="deals">
+        <div class="container">
+            <div class="deals-slider" data-aos="fade-up">
+                <div class="deal-card">
+                    <div class="deal-content">
+                        <span class="deal-badge">Limited Time</span>
+                        <h3>Buy 1 Get 1 Free</h3>
+                        <p>On all large pizzas every Tuesday</p>
+                        <span class="deal-code">Use code: <strong>BOGO</strong></span>
+                    </div>
+                    <div class="deal-image">
+                        <span>🍕🍕</span>
+                    </div>
+                </div>
+                
+                <div class="deal-card">
+                    <div class="deal-content">
+                        <span class="deal-badge hot">Hot Deal</span>
+                        <h3>30% Off First Order</h3>
+                        <p>New customers special discount</p>
+                        <span class="deal-code">Use code: <strong>WELCOME30</strong></span>
+                    </div>
+                    <div class="deal-image">
+                        <span>🎉</span>
+                    </div>
+                </div>
+                
+                <div class="deal-card">
+                    <div class="deal-content">
+                        <span class="deal-badge">Combo</span>
+                        <h3>Family Feast $29.99</h3>
+                        <p>2 Large Pizzas + Sides + Drinks</p>
+                        <span class="deal-code">Use code: <strong>FAMILY</strong></span>
+                    </div>
+                    <div class="deal-image">
+                        <span>👨‍👩‍👧‍👦</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PIZZA CATEGORIES ============ -->
+    <section class="pizza-categories" id="pizza-menu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">Our Menu</span>
+                <h2 class="section-title">Choose Your <span class="gradient-text">Favorite</span></h2>
+                <p class="section-description">From classic favorites to gourmet creations</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="tab-btn active" data-category="all">
+                    <span class="tab-icon">🍕</span>
+                    <span class="tab-text">All Pizzas</span>
+                    <span class="tab-count">24</span>
+                </button>
+                <button class="tab-btn" data-category="classic">
+                    <span class="tab-icon">⭐</span>
+                    <span class="tab-text">Classic</span>
+                    <span class="tab-count">8</span>
+                </button>
+                <button class="tab-btn" data-category="gourmet">
+                    <span class="tab-icon">👨‍🍳</span>
+                    <span class="tab-text">Gourmet</span>
+                    <span class="tab-count">6</span>
+                </button>
+                <button class="tab-btn" data-category="veggie">
+                    <span class="tab-icon">🥬</span>
+                    <span class="tab-text">Veggie</span>
+                    <span class="tab-count">5</span>
+                </button>
+                <button class="tab-btn" data-category="meat">
+                    <span class="tab-icon">🥓</span>
+                    <span class="tab-text">Meat Lovers</span>
+                    <span class="tab-count">5</span>
+                </button>
+            </div>
+
+            <!-- Search & Sort -->
+            <div class="filter-bar" data-aos="fade-up" data-aos-delay="150">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="pizzaSearch" placeholder="Search pizzas...">
+                </div>
+                <div class="sort-dropdown">
+                    <select id="sortPizzas">
+                        <option value="popular">Most Popular</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <!-- Pizza Grid -->
+            <div class="pizza-grid" id="pizzaGrid">
+                <!-- Pizza Card 1 -->
+                <div class="pizza-card" data-category="classic" data-price="14.99" data-rating="4.9" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400" alt="Margherita Pizza">
+                        <div class="card-badges">
+                            <span class="badge bestseller">Bestseller</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                           <a href="product-details.html"> <button class="quick-view-btn"> Quick View</button></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Margherita Classic</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="reviews">(324)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Fresh tomatoes, mozzarella, basil, olive oil on our signature crust</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 850 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="10.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="14.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="18.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$14.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="1" data-name="Margherita Classic" data-price="14.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 2 -->
+                <div class="pizza-card" data-category="meat" data-price="18.99" data-rating="4.8" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400" alt="Pepperoni Pizza">
+                        <div class="card-badges">
+                            <span class="badge discount">-20%</span>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                          <a href="product-details.html">  <button class="quick-view-btn">Quick View</button></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Pepperoni Supreme</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="reviews">(512)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Double pepperoni, mozzarella, oregano, our special tomato sauce</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 1020 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="14.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="18.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="22.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="original-price">$23.99</span>
+                                <span class="current-price">$18.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="2" data-name="Pepperoni Supreme" data-price="18.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 3 -->
+                <div class="pizza-card" data-category="gourmet" data-price="21.99" data-rating="4.9" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400" alt="BBQ Chicken Pizza">
+                        <div class="card-badges">
+                            <span class="badge new">New</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">BBQ Chicken Deluxe</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="reviews">(287)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Grilled chicken, BBQ sauce, red onions, cilantro, smoked gouda</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 980 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="17.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="21.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="25.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$21.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="3" data-name="BBQ Chicken Deluxe" data-price="21.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 4 -->
+                <div class="pizza-card" data-category="veggie" data-price="16.99" data-rating="4.7" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1511689660979-10d2b1aada49?w=400" alt="Veggie Supreme">
+                        <div class="card-badges">
+                            <span class="badge vegan">Vegetarian</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Veggie Supreme</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                                <span class="reviews">(198)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Bell peppers, mushrooms, olives, onions, tomatoes, spinach</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 720 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="12.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="16.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="20.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$16.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="4" data-name="Veggie Supreme" data-price="16.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 5 -->
+                <div class="pizza-card" data-category="meat" data-price="22.99" data-rating="4.8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=400" alt="Meat Feast">
+                        <div class="card-badges">
+                            <span class="badge bestseller">Bestseller</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Meat Feast</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="reviews">(445)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Pepperoni, sausage, bacon, ham, ground beef on tomato base</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 1250 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="18.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="22.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="26.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$22.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="5" data-name="Meat Feast" data-price="22.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 6 -->
+                <div class="pizza-card" data-category="gourmet" data-price="24.99" data-rating="4.9" data-aos="fade-up" data-aos-delay="250">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Truffle Mushroom">
+                        <div class="card-badges">
+                            <span class="badge premium">Premium</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Truffle Mushroom</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="reviews">(156)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Wild mushrooms, truffle oil, fontina cheese, fresh thyme</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 890 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="20.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="24.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="28.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$24.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="6" data-name="Truffle Mushroom" data-price="24.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 7 -->
+                <div class="pizza-card" data-category="classic" data-price="15.99" data-rating="4.6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400" alt="Hawaiian">
+                        <div class="card-badges">
+                            <span class="badge discount">-15%</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Hawaiian Paradise</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                                <span class="reviews">(378)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Ham, pineapple chunks, mozzarella, sweet tomato sauce</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 920 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="11.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="15.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="19.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="original-price">$18.99</span>
+                                <span class="current-price">$15.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="7" data-name="Hawaiian Paradise" data-price="15.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 8 -->
+                <div class="pizza-card" data-category="veggie" data-price="17.99" data-rating="4.7" data-aos="fade-up" data-aos-delay="350">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400" alt="Mediterranean">
+                        <div class="card-badges">
+                            <span class="badge vegan">Vegetarian</span>
+                            <span class="badge new">New</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Mediterranean Dream</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                                <span class="reviews">(134)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Feta cheese, olives, sun-dried tomatoes, artichokes, herbs</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 780 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="13.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="17.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="21.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$17.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="8" data-name="Mediterranean Dream" data-price="17.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 9 -->
+                <div class="pizza-card" data-category="classic" data-price="16.99" data-rating="4.8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400" alt="Four Cheese">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Four Cheese Bliss</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="reviews">(267)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Mozzarella, gorgonzola, parmesan, ricotta on white sauce</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 950 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="12.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="16.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="20.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$16.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="9" data-name="Four Cheese Bliss" data-price="16.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 10 -->
+                <div class="pizza-card" data-category="gourmet" data-price="23.99" data-rating="4.9" data-aos="fade-up" data-aos-delay="450">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600028068383-ea11a7a101f3?w=400" alt="Prosciutto">
+                        <div class="card-badges">
+                            <span class="badge premium">Premium</span>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Prosciutto & Arugula</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="reviews">(189)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Prosciutto di Parma, fresh arugula, shaved parmesan, balsamic</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 870 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="19.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="23.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="27.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$23.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="10" data-name="Prosciutto & Arugula" data-price="23.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 11 -->
+                <div class="pizza-card" data-category="meat" data-price="19.99" data-rating="4.7" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400" alt="Buffalo Chicken">
+                        <div class="card-badges">
+                            <span class="badge spicy">🌶️ Spicy</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Buffalo Chicken</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                                <span class="reviews">(234)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Spicy buffalo chicken, blue cheese, celery, ranch drizzle</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 1050 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="15.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="19.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="23.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$19.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="11" data-name="Buffalo Chicken" data-price="19.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pizza Card 12 -->
+                <div class="pizza-card" data-category="veggie" data-price="18.99" data-rating="4.8" data-aos="fade-up" data-aos-delay="550">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1606502973842-f64bc2785fe5?w=400" alt="Spinach Artichoke">
+                        <div class="card-badges">
+                            <span class="badge vegan">Vegetarian</span>
+                        </div>
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="quick-view">
+                            <button class="quick-view-btn">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="pizza-name">Spinach Artichoke</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="reviews">(167)</span>
+                            </div>
+                        </div>
+                        <p class="pizza-description">Creamy spinach, artichoke hearts, garlic, mozzarella blend</p>
+                        <div class="pizza-meta">
+                            <span class="meta-item"><i class="fas fa-ruler"></i> 12" Medium</span>
+                            <span class="meta-item"><i class="fas fa-fire-alt"></i> 820 cal</span>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="small" data-price="14.99">S</button>
+                            <button class="size-btn active" data-size="medium" data-price="18.99">M</button>
+                            <button class="size-btn" data-size="large" data-price="22.99">L</button>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-group">
+                                <span class="current-price">$18.99</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="12" data-name="Spinach Artichoke" data-price="18.99">
+                                <i class="fas fa-plus"></i>
+                                <span>Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-wrapper" data-aos="fade-up">
+                <button class="btn btn-outline btn-lg" id="loadMoreBtn">
+                    <span>Load More Pizzas</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BUILD YOUR OWN PIZZA ============ -->
+    <section class="build-pizza">
+        <div class="container">
+            <div class="build-pizza-content">
+                <div class="build-text" data-aos="fade-right">
+                    <span class="section-badge">Customize</span>
+                    <h2>Build Your <span class="gradient-text">Own Pizza</span></h2>
+                    <p>Create your perfect pizza masterpiece! Choose your crust, sauce, cheese, and toppings.</p>
+                    
+                    <ul class="build-features">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Choose from 5 crust types</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>8 different sauces available</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>30+ fresh toppings</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Extra cheese? No problem!</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary btn-lg">
+                        <span>Start Building</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="build-image" data-aos="fade-left">
+                    <div class="pizza-builder-visual">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Custom Pizza">
+                        <div class="ingredient-icon icon-1">🧀</div>
+                        <div class="ingredient-icon icon-2">🍅</div>
+                        <div class="ingredient-icon icon-3">🫒</div>
+                        <div class="ingredient-icon icon-4">🌿</div>
+                        <div class="ingredient-icon icon-5">🍄</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>Foodie<span class="highlight">Express</span></span>
+                    </a>
+                    <p>Delivering happiness one slice at a time. Order your favorite pizzas and more from the best restaurants.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Deals</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Pizza</a></li>
+                        <li><a href="#">Burgers</a></li>
+                        <li><a href="#">Pasta</a></li>
+                        <li><a href="#">Desserts</a></li>
+                        <li><a href="#">Drinks</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Food Street, NYC</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@foodieexpress.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodieExpress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ CART SIDEBAR ============ -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>
+                <i class="fas fa-shopping-cart"></i>
+                <span>Your Cart</span>
+            </h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+            <div class="empty-cart" id="emptyCart">
+                <div class="empty-icon">🛒</div>
+                <h4>Your cart is empty</h4>
+                <p>Add some delicious pizzas!</p>
+            </div>
+        </div>
+        
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span id="delivery">$2.99</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">$2.99</span>
+                </div>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">
+                <span>Proceed to Checkout</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ============ SCROLL TO TOP ============ -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ============ TOAST CONTAINER ============ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="pizza.js"></script>
+</body>
+</html>
